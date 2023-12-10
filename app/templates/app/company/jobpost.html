@@ -1,0 +1,102 @@
+{% extends 'app/company/base.html' %}
+{% load static %}
+{% block content %}
+<div id="layoutSidenav_content">
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-2 bg-light ">
+                <div class="row justify-content-center">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Job Post</h3>
+                    </div>
+                    <center>
+                        {% if msg %}
+                        <h4 style="color: green; font-style: italic;">{{msg}}</h4>
+                        {% endif %}
+                    </center>
+                    <div class="card-body">
+                        <form action="{% url 'jobpost' %}" method="post"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                        
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="jobname" name="jobname" value="{{comp.jobname}}"
+                                    type="text" placeholder="Enter your last name" />
+                                <label for="jobname">Job Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="company_name" name="company_name"
+                                    value="{{comp.company_name}}" type="text" placeholder="Enter your last name" />
+                                <label for="company_name">Company Name</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="companyaddress" name="companyaddress"
+                                    value="{{comp.companyaddress}}" type="text" placeholder="Enter your last name" />
+                                <label for="companyaddress">Company Address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="location" name="location"
+                                    value="{{comp.location}}" type="text" placeholder="Enter your location" />
+                                <label for="location">Company Location</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobdescription">Job Description</label>
+                                <textarea class="form-control" rows="5" id="jobdescription"
+                                    name="jobdescription"></textarea>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="qualification" type="text" name="qualification"
+                                    value="{{comp.qualification}}" placeholder="name@example.com" />
+                                <label for="qualification">Qualification</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="qualification" type="text" name="responsibilities"
+                                    value="{{comp.responsibilities}}" placeholder="responsibilities" />
+                                <label for="responsibilities">Responsibilities</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="website" type="text" name="website"
+                                    value="{{comp.website}}" />
+                                <label for="website">Company Website</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="inputEmail" type="email" name="companyemail"
+                                    value="{{comp.companyemail}}" placeholder="name@example.com" />
+                                <label for="companyemail">Email address</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="contact" name="companycontact" name="{{comp.companycontact}}"
+                                    type="text" placeholder="Enter your Company Contact" />
+                                <label for="contact">Company Contact</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="salarypackage" name="salarypackage"
+                                    name="{{comp.salarypackage}}" type="text" placeholder="Enter your salarypackage" />
+                                <label for="salarypackage">salarypackage</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="experience" name="experience" name="{{comp.experience}}"
+                                    type="text" placeholder="Enter your experience" />
+                                <label for="experience">Experience</label>
+                            </div>
+                            <!-- <div class="form-floating mb-3">
+                                            <label for="address" class="form-label">Company Description</label>
+                                            <textarea class="form-control" id="company_desc" name="company_desc" rows="6"></textarea>
+                                        </div> -->
+
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-block">Update
+                                        Pofile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
